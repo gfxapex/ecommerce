@@ -8,12 +8,15 @@ export class JwtPayloadDto {
     @IsEmail()
     email: string;
 
-    // @IsString()
-    // username: string;
+    @IsString()
+    username: string;
 
-    // @IsEnum(Role)
-    // userType: Role;
+    @IsEnum(Role)
+    userType: Role;
 
-    // @IsEnum(UserStatus)
-    // status: UserStatus;
+    @IsEnum(UserStatus)
+    status: UserStatus;
+
+    @IsString()
+    phone: string;
 }

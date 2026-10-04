@@ -20,30 +20,11 @@ async function bootstrap() {
 
   // 
   app.enableCors({
-    origin: process.env.FRONTEND_URL?.split(",") ?? "http://localhost:3000",
+    origin: process.env.FRONTEND_URL?.split(",") ?? "http://localhost:4200",
     credentials: true,
-    methods: ["GET", "POST,", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "Accept"]
   });
-
-  // Enable  Swagger docs
-  // const config = new DocumentBuilder();
-  // const document = SwaggerModule.createDocument(app, config);
-  // SwaggerModule.setup("api/docs", app, document, {
-  //   swaggerOptions: {
-  //     persistAuthorization: true, tagsSorter: "alpha",
-  //     operationSorter:"alpha"
-  //   },
-  //   customSiteTitle:"API Documentation",
-  //   customfavicon: "https://nestjs.com/img/logo-small.svg",
-  //   customCss: "
-  //   .swagger-ui, topbar{display: none}"
-  //   "swagger-ui, info{margin: 50px 0}",
-  //   "swagger-ui, info.title{font-size: 2.5em, color:}",
-    
-    
-
-  // });
 
 
   // Example: /users --. api/users

@@ -1,15 +1,14 @@
 import { Role } from "../../generated/prisma/enums";
 
-export class AuthResponseDto{
-    accessToken: string;
+export class AuthResponseDto {
+    accessToken?: string;
+    message?: string;
 
-    refreshToken: string;
-
-    user:{
+    user: {
         id: number;
         email: string;
         firstName: string | null;
         lastName: string | null;
         role: Role;
-    }
+    };
 }
