@@ -9,7 +9,6 @@ import { SignupDto } from '../dto/auth/signup-dto';
 import { LoginDto } from '../dto/auth/login-dto';
 import { UsersService } from '../user/user-service';
 import { JwtTokenService } from './jwt-token-service';
-import { AuthResponseDto } from '../dto/auth/auth-response-dto';
 import { PrismaService } from '../prisma/prisma-service';
 
 @Injectable()
@@ -68,11 +67,6 @@ export class AuthService {
                 select: { id: true, username: true, email: true, phone: true, firstName: true, lastName: true, role: true, password: false }
             });
 
-            // token
-            // const tokens = await this.jwtT.generateTokens(user.id, user.email);
-            // await this.jwtT.updatedRefreshTokens(user.id, tokens.refreshToken);
-
-            // return { ...tokens, user }
             return {
                 message: 'Account created successfully. Please login.',
                 user,
@@ -98,6 +92,12 @@ export class AuthService {
             ],
         },
     });
+console.log('Identifier:', identifier);
+console.log('User found:', !!user);
+
+if (user) {
+  console.log('Password matches:', await bcrypt.compare(password, user.password));
+}
 
     if (!user || !(await bcrypt.compare(password, user.password))) {
         throw new UnauthorizedException('Invalid email, username, or password');

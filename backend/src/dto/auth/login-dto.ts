@@ -6,11 +6,11 @@ import {
 
 export class LoginDto {
   @IsString()
-  @IsNotEmpty({ message: 'Identifier must not be empty' })
+  @IsNotEmpty({ message: 'Email, username or phone is required' })
   identifier: string;
 
   @IsString()
-  @IsNotEmpty({ message: 'Password must not be empty' })
+  @IsNotEmpty({ message: 'Password is required' })
   @Matches(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
     {
